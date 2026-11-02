@@ -28,7 +28,18 @@ public class ApplicantData {
 
         return true;
     }
+    
+    public static int findIndex(String id) {
 
+        for (int i = 0; i < count; i++) {
+
+            if (studentID[i].equalsIgnoreCase(id)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
     public static void main(String[] args) {
 
     }
