@@ -28,7 +28,7 @@ public class ApplicantData {
 
         return true;
     }
-    
+
     public static int findIndex(String id) {
 
         for (int i = 0; i < count; i++) {
@@ -40,6 +40,25 @@ public class ApplicantData {
 
         return -1;
     }
+
+    public static int findHighestRanked() {
+
+        if (count == 0) {
+            return -1;
+        }
+
+        int highest = 0;
+
+        for (int i = 1; i < count; i++) {
+
+            if (studentScore[i] > studentScore[highest]) {
+                highest = i;
+            }
+        }
+
+        return highest;
+    }
+
     public static void main(String[] args) {
 
     }
