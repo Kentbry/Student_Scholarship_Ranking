@@ -59,7 +59,22 @@ public class ApplicantData {
         return highest;
     }
 
-    public static void main(String[] args) {
+    public static int findHighestUnawarded() {
 
+        int highest = -1;
+
+        for (int i = 0; i < count; i++) {
+
+            if (!awarded[i]) {
+
+                if (highest == -1
+                        || studentScore[i] > studentScore[highest]) {
+
+                    highest = i;
+                }
+            }
+        }
+
+        return highest;
     }
 }
