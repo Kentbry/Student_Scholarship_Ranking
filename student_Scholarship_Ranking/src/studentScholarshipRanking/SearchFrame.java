@@ -9,9 +9,6 @@ package studentScholarshipRanking;
  * @author kentb
  */
 public class SearchFrame extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SearchFrame.class.getName());
-
     /**
      * Creates new form SearchFrame
      */
@@ -44,6 +41,7 @@ public class SearchFrame extends javax.swing.JFrame {
         jLabel1.setText("Search Applicant by Student ID");
 
         Studentidtxt1.setBackground(new java.awt.Color(255, 255, 255));
+        Studentidtxt1.addActionListener(this::Studentidtxt1ActionPerformed);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -53,11 +51,13 @@ public class SearchFrame extends javax.swing.JFrame {
         Searchbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Searchbtn1.setForeground(new java.awt.Color(0, 0, 0));
         Searchbtn1.setText("Search");
+        Searchbtn1.addActionListener(this::Searchbtn1ActionPerformed);
 
         returnbtn1.setBackground(new java.awt.Color(204, 204, 255));
         returnbtn1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         returnbtn1.setForeground(new java.awt.Color(0, 0, 0));
         returnbtn1.setText("Return Home");
+        returnbtn1.addActionListener(this::returnbtn1ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,27 +111,22 @@ public class SearchFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Studentidtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Studentidtxt1ActionPerformed
+        searchApplicant();
+    }//GEN-LAST:event_Studentidtxt1ActionPerformed
+
+    private void Searchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbtn1ActionPerformed
+        searchStudent();
+    }//GEN-LAST:event_Searchbtn1ActionPerformed
+
+    private void returnbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtn1ActionPerformed
+
+    }//GEN-LAST:event_returnbtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new SearchFrame().setVisible(true));
     }
