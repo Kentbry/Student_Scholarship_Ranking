@@ -116,7 +116,7 @@ public class SearchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Studentidtxt1ActionPerformed
 
     private void Searchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbtn1ActionPerformed
-        searchStudent();
+        searchApplicant();
     }//GEN-LAST:event_Searchbtn1ActionPerformed
 
     private void returnbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtn1ActionPerformed
@@ -124,6 +124,32 @@ public class SearchFrame extends javax.swing.JFrame {
         sf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_returnbtn1ActionPerformed
+       private void searchApplicant() {
+
+        String id = Studentidtxt1.getText().trim();
+
+        if (id.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Please enter a Student ID.");
+            return;
+        }
+         int index = ApplicantData.findIndex(id);
+
+        if (index == -1) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Applicant not found.");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Applicant Found!\n\n"
+                    + "Student ID: " + ApplicantData.studentID[index] + "\n"
+                    + "Name: " + ApplicantData.studentName[index] + "\n"
+                    + "Score: " + ApplicantData.studentScore[index] + "\n"
+                    + "Status: "
+                    + (ApplicantData.awarded[index] ? "Awarded" : "Not Awarded")
+            );
+        }
+    }
 
     /**
      * @param args the command line arguments
