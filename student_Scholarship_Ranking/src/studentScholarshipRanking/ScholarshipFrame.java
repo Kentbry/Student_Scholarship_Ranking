@@ -263,6 +263,47 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         }
     }
 
+    private void refreshApplicants() {
+
+        Applicantstext1.setText("");
+
+        if (ApplicantData.count == 0) {
+            Applicantstext1.setText("No applicants registered.");
+            return;
+        }
+
+        for (int i = 0; i < ApplicantData.count; i++) {
+
+            Applicantstext1.append(
+                    "Student ID: " + ApplicantData.studentID[i] + "\n"
+                    + "Name: " + ApplicantData.studentName[i] + "\n"
+                    + "Score: " + ApplicantData.studentScore[i] + "\n"
+                    + "Status: "
+                    + (ApplicantData.awarded[i] ? "Awarded" : "Not Awarded")
+                    + "\n-----------------------------\n"
+            );
+        }
+    }
+
+    private void showHighestRanked() {
+
+        int highest = ApplicantData.findHighestRanked();
+
+        if (highest == -1) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "No applicants registered.");
+            return;
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Highest Ranked Applicant\n\n"
+                + "Student ID: " + ApplicantData.studentID[highest] + "\n"
+                + "Name: " + ApplicantData.studentName[highest] + "\n"
+                + "Score: " + ApplicantData.studentScore[highest]
+        );
+    }
+
     private void OpenSearchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenSearchbtn1ActionPerformed
         openSearchWindow();
     }//GEN-LAST:event_OpenSearchbtn1ActionPerformed
