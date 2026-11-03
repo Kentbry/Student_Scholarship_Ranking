@@ -304,6 +304,28 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         );
     }
 
+    private void awardHighest() {
+
+        int highest = ApplicantData.findHighestUnawarded();
+
+        if (highest == -1) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "No eligible applicants left to award.");
+            return;
+        }
+
+        ApplicantData.awarded[highest] = true;
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Scholarship Awarded!\n\n"
+                + "Student: " + ApplicantData.studentName[highest] + "\n"
+                + "Student ID: " + ApplicantData.studentID[highest] + "\n"
+                + "Score: " + ApplicantData.studentScore[highest]
+        );
+
+        refreshApplicants();
+    }
     private void OpenSearchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenSearchbtn1ActionPerformed
         openSearchWindow();
     }//GEN-LAST:event_OpenSearchbtn1ActionPerformed
