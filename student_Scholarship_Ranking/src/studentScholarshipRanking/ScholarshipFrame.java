@@ -214,6 +214,54 @@ public class ScholarshipFrame extends javax.swing.JFrame {
     private void AwardHighestbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AwardHighestbtn1ActionPerformed
         awardHighest();
     }//GEN-LAST:event_AwardHighestbtn1ActionPerformed
+    private void clearFields() {
+        StudentIdfeild1.setText("");
+        Namefeild2.setText("");
+        Scorefeild3.setText("");
+    }
+
+    private void registerApplicant() {
+
+        String id = StudentIdfeild1.getText().trim();
+        String name = Namefeild2.getText().trim();
+        String scoreText = Scorefeild3.getText().trim();
+
+        if (id.isEmpty() || name.isEmpty() || scoreText.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Please fill in all fields.");
+            return;
+        }
+
+        double score;
+
+        try {
+            score = Double.parseDouble(scoreText);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Please enter a valid numeric score.");
+            return;
+        }
+
+        if (score < 0 || score > 100) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Score must be between 0 and 100.");
+            return;
+        }
+
+        boolean added = ApplicantData.addApplicant(id, name, score);
+
+        if (added) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Applicant successfully registered!");
+
+            clearFields();
+            refreshApplicants();
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Duplicate Student ID or applicant array is full.");
+        }
+    }
 
     private void OpenSearchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenSearchbtn1ActionPerformed
         openSearchWindow();
