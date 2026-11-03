@@ -326,6 +326,14 @@ public class ScholarshipFrame extends javax.swing.JFrame {
 
         refreshApplicants();
     }
+
+    private void openSearchWindow() {
+
+        SearchFrame search = new SearchFrame();
+        search.setLocationRelativeTo(this);
+        search.setVisible(true);
+
+    }
     private void OpenSearchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenSearchbtn1ActionPerformed
         openSearchWindow();
     }//GEN-LAST:event_OpenSearchbtn1ActionPerformed
