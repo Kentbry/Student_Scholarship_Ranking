@@ -120,7 +120,9 @@ public class SearchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Searchbtn1ActionPerformed
 
     private void returnbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtn1ActionPerformed
-
+        ScholarshipFrame sf = new ScholarshipFrame();
+        sf.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_returnbtn1ActionPerformed
 
     /**
