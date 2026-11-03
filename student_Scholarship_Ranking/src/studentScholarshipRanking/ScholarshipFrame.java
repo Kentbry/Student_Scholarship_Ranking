@@ -1,19 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package studentScholarshipRanking;
 
-/**
- *
- * @author LENOVO
- */
 public class ScholarshipFrame extends javax.swing.JFrame {
+
     /**
      * Creates new form ScholarshipFrame
      */
     public ScholarshipFrame() {
         initComponents();
+        refreshApplicants();
     }
 
     /**
@@ -30,17 +24,17 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        StudentIdfeild1 = new javax.swing.JTextField();
+        Namefeild2 = new javax.swing.JTextField();
+        Scorefeild3 = new javax.swing.JTextField();
+        Clearbtn1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        Applicantstext1 = new javax.swing.JTextArea();
+        Displayhighestbtn1 = new javax.swing.JButton();
+        AwardHighestbtn1 = new javax.swing.JButton();
+        OpenSearchbtn1 = new javax.swing.JButton();
+        Registerbtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,46 +58,50 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Score(0-100)");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        StudentIdfeild1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        Namefeild2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        Scorefeild3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Clear");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Register");
+        Clearbtn1.setBackground(new java.awt.Color(204, 204, 255));
+        Clearbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Clearbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        Clearbtn1.setText("Clear");
+        Clearbtn1.addActionListener(this::Clearbtn1ActionPerformed);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Applicants");
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Applicantstext1.setBackground(new java.awt.Color(255, 255, 255));
+        Applicantstext1.setColumns(20);
+        Applicantstext1.setRows(5);
+        jScrollPane1.setViewportView(Applicantstext1);
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Display Highest Ranked");
+        Displayhighestbtn1.setBackground(new java.awt.Color(204, 204, 255));
+        Displayhighestbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Displayhighestbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        Displayhighestbtn1.setText("Display Highest Ranked");
+        Displayhighestbtn1.addActionListener(this::Displayhighestbtn1ActionPerformed);
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Award Higehst");
+        AwardHighestbtn1.setBackground(new java.awt.Color(204, 204, 255));
+        AwardHighestbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AwardHighestbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        AwardHighestbtn1.setText("Award Higehst");
+        AwardHighestbtn1.addActionListener(this::AwardHighestbtn1ActionPerformed);
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Open Search Window");
+        OpenSearchbtn1.setBackground(new java.awt.Color(204, 204, 255));
+        OpenSearchbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        OpenSearchbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        OpenSearchbtn1.setText("Open Search Window");
+        OpenSearchbtn1.addActionListener(this::OpenSearchbtn1ActionPerformed);
+
+        Registerbtn1.setBackground(new java.awt.Color(204, 204, 255));
+        Registerbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Registerbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        Registerbtn1.setText("Register");
+        Registerbtn1.addActionListener(this::Registerbtn1ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,16 +121,16 @@ public class ScholarshipFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(51, 51, 51)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)))
+                                    .addComponent(StudentIdfeild1)
+                                    .addComponent(Namefeild2)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jButton1))
+                                    .addComponent(Clearbtn1))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(Scorefeild3)
+                                    .addComponent(Registerbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(16, 16, 16))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -146,11 +144,11 @@ public class ScholarshipFrame extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jButton3)
+                        .addComponent(Displayhighestbtn1)
                         .addGap(41, 41, 41)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AwardHighestbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(OpenSearchbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,28 +159,28 @@ public class ScholarshipFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(StudentIdfeild1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Namefeild2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Scorefeild3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Clearbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Registerbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(Displayhighestbtn1)
+                    .addComponent(AwardHighestbtn1)
+                    .addComponent(OpenSearchbtn1))
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
@@ -200,9 +198,26 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void Clearbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clearbtn1ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_Clearbtn1ActionPerformed
+
+    private void Displayhighestbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Displayhighestbtn1ActionPerformed
+        showHighestRanked();
+
+    }//GEN-LAST:event_Displayhighestbtn1ActionPerformed
+
+    private void Registerbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registerbtn1ActionPerformed
+        registerApplicant();
+    }//GEN-LAST:event_Registerbtn1ActionPerformed
+
+    private void AwardHighestbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AwardHighestbtn1ActionPerformed
+        awardHighest();
+    }//GEN-LAST:event_AwardHighestbtn1ActionPerformed
+
+    private void OpenSearchbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenSearchbtn1ActionPerformed
+        openSearchWindow();
+    }//GEN-LAST:event_OpenSearchbtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,11 +228,15 @@ public class ScholarshipFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JTextArea Applicantstext1;
+    private javax.swing.JButton AwardHighestbtn1;
+    private javax.swing.JButton Clearbtn1;
+    private javax.swing.JButton Displayhighestbtn1;
+    private javax.swing.JTextField Namefeild2;
+    private javax.swing.JButton OpenSearchbtn1;
+    private javax.swing.JButton Registerbtn1;
+    private javax.swing.JTextField Scorefeild3;
+    private javax.swing.JTextField StudentIdfeild1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -225,9 +244,5 @@ public class ScholarshipFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
