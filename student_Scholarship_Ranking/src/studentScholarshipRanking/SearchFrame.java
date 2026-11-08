@@ -9,11 +9,14 @@ package studentScholarshipRanking;
  * @author kentb
  */
 public class SearchFrame extends javax.swing.JFrame {
+
     /**
      * Creates new form SearchFrame
      */
     public SearchFrame() {
         initComponents();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -120,11 +123,13 @@ public class SearchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Searchbtn1ActionPerformed
 
     private void returnbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtn1ActionPerformed
-        ScholarshipFrame sf = new ScholarshipFrame();
-        sf.setVisible(true);
+        returnHome();
+    }
+
+    private void returnHome() {
         this.dispose();
     }//GEN-LAST:event_returnbtn1ActionPerformed
-       private void searchApplicant() {
+    private void searchApplicant() {
 
         String id = Studentidtxt1.getText().trim();
 
@@ -133,7 +138,7 @@ public class SearchFrame extends javax.swing.JFrame {
                     this, "Please enter a Student ID.");
             return;
         }
-         int index = ApplicantData.findIndex(id);
+        int index = ApplicantData.findIndex(id);
 
         if (index == -1) {
             javax.swing.JOptionPane.showMessageDialog(
