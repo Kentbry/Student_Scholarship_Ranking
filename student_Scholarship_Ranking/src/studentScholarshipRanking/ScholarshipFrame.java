@@ -88,7 +88,7 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         AwardHighestbtn1.setBackground(new java.awt.Color(204, 204, 255));
         AwardHighestbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AwardHighestbtn1.setForeground(new java.awt.Color(0, 0, 0));
-        AwardHighestbtn1.setText("Award Higehst");
+        AwardHighestbtn1.setText("Award Highest");
         AwardHighestbtn1.addActionListener(this::AwardHighestbtn1ActionPerformed);
 
         OpenSearchbtn1.setBackground(new java.awt.Color(204, 204, 255));
@@ -237,6 +237,11 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         try {
             score = Double.parseDouble(scoreText);
         } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Please enter a valid numeric score.");
+            return;
+        }
+        if (Double.isNaN(score)) {
             javax.swing.JOptionPane.showMessageDialog(
                     this, "Please enter a valid numeric score.");
             return;
