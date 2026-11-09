@@ -252,6 +252,11 @@ public class ScholarshipFrame extends javax.swing.JFrame {
                     this, "Score must be between 0 and 100.");
             return;
         }
+        if (ApplicantData.count >= ApplicantData.studentID.length) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "The list is full (100 applicants).");
+            return;
+        }
 
         boolean added = ApplicantData.addApplicant(id, name, score);
 
@@ -264,7 +269,7 @@ public class ScholarshipFrame extends javax.swing.JFrame {
 
         } else {
             javax.swing.JOptionPane.showMessageDialog(
-                    this, "Duplicate Student ID or applicant array is full.");
+                    this, "Duplicate Student ID.");
         }
     }
 
