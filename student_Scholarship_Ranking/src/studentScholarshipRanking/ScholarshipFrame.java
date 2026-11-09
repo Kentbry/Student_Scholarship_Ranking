@@ -231,6 +231,17 @@ public class ScholarshipFrame extends javax.swing.JFrame {
                     this, "Please fill in all fields.");
             return;
         }
+        if (!id.matches("[0-9]+")) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Student ID must contain numbers only.");
+            return;
+        }
+
+        if (!name.matches("[a-zA-Z ]+")) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this, "Name must contain letters only.");
+            return;
+        }
 
         double score;
 
@@ -250,11 +261,6 @@ public class ScholarshipFrame extends javax.swing.JFrame {
         if (score < 0 || score > 100) {
             javax.swing.JOptionPane.showMessageDialog(
                     this, "Score must be between 0 and 100.");
-            return;
-        }
-        if (ApplicantData.count >= ApplicantData.studentID.length) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    this, "The list is full (100 applicants).");
             return;
         }
 
@@ -297,45 +303,74 @@ public class ScholarshipFrame extends javax.swing.JFrame {
 
     private void showHighestRanked() {
 
-        int highest = ApplicantData.findHighestRanked();
+    int highest = ApplicantData.findHighestRanked();
 
-        if (highest == -1) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    this, "No applicants registered.");
-            return;
-        }
-
+    if (highest == -1) {
         javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Highest Ranked Applicant\n\n"
-                + "Student ID: " + ApplicantData.studentID[highest] + "\n"
-                + "Name: " + ApplicantData.studentName[highest] + "\n"
-                + "Score: " + ApplicantData.studentScore[highest]
-        );
+                this, "No applicants registered.");
+        return;
     }
+
+    double highestScore = ApplicantData.studentScore[highest];
+
+    String message = "Highest Ranked Applicant(s)\n\n";
+
+    for (int i = 0; i < ApplicantData.count; i++) {
+
+        if (ApplicantData.studentScore[i] == highestScore) {
+
+            message += "Student ID: " + ApplicantData.studentID[i] + "\n"
+                    + "Name: " + ApplicantData.studentName[i] + "\n"
+                    + "Score: " + ApplicantData.studentScore[i] + "\n"
+                    + "-----------------------------\n";
+        }
+    }
+
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            message
+    );
+}
 
     private void awardHighest() {
 
-        int highest = ApplicantData.findHighestUnawarded();
+    int highest = ApplicantData.findHighestRanked();
 
-        if (highest == -1) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    this, "No eligible applicants left to award.");
-            return;
-        }
-
-        ApplicantData.awarded[highest] = true;
-
+    if (highest == -1) {
         javax.swing.JOptionPane.showMessageDialog(
                 this,
-                "Scholarship Awarded!\n\n"
-                + "Student: " + ApplicantData.studentName[highest] + "\n"
-                + "Student ID: " + ApplicantData.studentID[highest] + "\n"
-                + "Score: " + ApplicantData.studentScore[highest]
+                "No applicants registered."
         );
-
-        refreshApplicants();
+        return;
     }
+
+    for (int i = 0; i < ApplicantData.count; i++) {
+        ApplicantData.awarded[i] = false;
+    }
+
+    double highestScore = ApplicantData.studentScore[highest];
+
+    String message = "Scholarship Awarded!\n\n";
+
+    for (int i = 0; i < ApplicantData.count; i++) {
+
+        if (ApplicantData.studentScore[i] == highestScore) {
+
+            ApplicantData.awarded[i] = true;
+
+            message += "Student: " + ApplicantData.studentName[i] + "\n"
+                    + "Student ID: " + ApplicantData.studentID[i] + "\n"
+                    + "Score: " + ApplicantData.studentScore[i] + "\n\n";
+        }
+    }
+
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            message
+    );
+
+    refreshApplicants();
+}
 
     private void openSearchWindow() {
 
